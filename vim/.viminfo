@@ -1,0 +1,495 @@
+# 이 viminfo 파일은 빔이 만든 것입니다 Vim 7.2.
+# 조심만 한다면 고칠 수도 있습니다!
+
+# 이 파일이 저장되었을 때의 'encoding'의 값
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~H
+# Last Search Pattern:
+~MSle0~/lakjshdf
+
+# Last Substitute Search Pattern:
+~MSle0&mode
+
+# 마지막으로 바꾼 문자열:
+$
+
+# 명령 줄 히스토리 (새것부터 오래된 것 순):
+:q!
+:wq
+:q
+:w
+::q
+:ㅈ
+:ㅈㅂ
+:w!
+:vnew 
+:q1
+:e
+:vnew haha.py
+:e haha.py
+:e haha.txt
+:new haha.py
+:w haha.py
+:vnew haha.txt
+:%s/mode/MODE/g
+:e bogo.py
+:76
+:%s/ROW_TEXT/HTML_ROW_TEXT/g
+:%s/ROW_TEXT/HTML_ROW_TEXT/gi
+:%s/celltext/HTML_CELL_TEXT/g
+:%s/rowtext/ROW_TEXT/g
+:%s/htmltext/HTML_TEXT/g
+:92
+:74
+:88
+:87
+:w hehe.txt
+:hehe.txt
+:Whehe.txt
+:whehe.txt
+:w@
+:wq!
+:Q
+:Q!
+:sh
+:q!jjjk
+: %s/Long/Integer/g
+:%s
+:14,18 s/Long/Integer/g
+:14,18 %s/Long/Integer/g
+:%s/Long/Integer/g
+:s/Long/Integer/g
+:q\
+:s
+:q@!
+:.!
+:!+
+:r!pwd
+:!pwd
+:r!date
+:e ~/videos/torrent_download/
+:vnew
+:e ~/
+:e ~
+:exit
+:new 
+:e ++enc=utf-8
+:su
+:q,
+
+# 찾을 문자열 히스토리 (새것부터 오래된 것 순):
+?/lakjshdf
+?/public
+?/maven
+? ^\d\{3}ÿ
+?/conten
+?/gra:q
+?/appl
+?/frame
+? mode
+?/href
+?/ranking
+?/contents
+?/simple
+?/class_name
+?/utl
+?/file
+?/get_title_
+?/tmphtml
+?/title
+?/get_row_text
+?/get_title_text
+?/java
+?/form
+?/addggexit
+?/javasc
+?/add_sc
+?/html
+?/get_
+?/font-fa
+?/print
+?/row_text
+? ROW_TEXT
+?/celltext
+?/rowtext
+? htmltext
+?/:
+?/:%s/htmltext/HTML_TEXT/g
+?/%s/htmltext/HTML_TEXT/g
+?/get_title
+?/BODY_
+?/contentsdata
+?/cong
+?/simplehtml
+?/87
+?/get_row
+?/mw_basic_list_subject
+?/winner
+?/<a 
+?/span
+?/EXO
+?/HDTV
+?/대단한
+?/젠틀
+?/H264-Baram
+?/arca
+?/mw_basic_list_category
+?/마녀
+?/torr
+?/attach
+?/torrent
+?/htt
+?/torrent_file
+?/china_
+?/move_
+? ^\d\{-}\/
+?/static
+?/name
+?/local
+?/_app
+?/en
+?/ST
+?/pvjk
+?/base_dir
+?/httpd
+?/status
+?/pidfile
+?/twit
+?/twitt
+?/Long
+?/helloform
+?/star
+?/jkim
+?/main
+? \<targetlist\>
+?/conf.d
+?/proxy_module
+?/Host
+?/mod_j
+? \<print\>
+? \<3\>
+?/filetype
+?/plu
+?/port
+?/cod
+?/enco
+?/pass
+?/pylab
+?/pylan
+?/tab
+?/8
+?/thread-
+?/thread_
+?/['
+
+# 표현 히스토리 (새것부터 오래된 것 순):
+
+# 입력 줄 히스토리 (새것부터 오래된 것 순):
+@qq
+@[{y(es)},n(o),a(ll),q(uit)] a
+@[{y(es)},n(o),a(ll),q(uit)] 
+@[{y(es)},n(o),a(ll),q(uit)] y
+
+# 입력 줄 히스토리 (새것부터 오래된 것 순):
+
+# 레지스터:
+"0	CHAR	0
+	https
+"1	LINE	0
+	    public static String 
+"2	LINE	0
+	
+"3	LINE	0
+		url = ssh://git
+"4	LINE	0
+	    public static 
+"5	LINE	0
+	    public static void 
+"6	LINE	0
+	#!PYTHON
+	# -*- coding: utf-8-sig -*-
+	
+	###########################################################################################
+	# Methods
+	###########################################################################################
+	import sys
+	import os.path
+	import re
+	
+	##
+	# 리스트를 모두 출력한다.
+	##
+	def prints(l) :
+	    if (l) :
+	            index = 1
+	                    indexsize = str(len(str(len(l))) + 1)
+	                            for i in l :
+	                                        print ('%' + indexsize + 'd> %s') % (index, i)
+	                                                    index = index+1
+	
+	                                                    ##
+	                                                    # 지정한 디렉토리의 하위의 모든 파일을 검색.
+	                                                    # 두번째 파라메터로 확장자를 지정하는 경우 해당 확장자 파일만 검색한다.
+	                                                    ##
+	                                                    def search_file(rootdir, extension = None, restr = None) :
+	                                                        searchedFiles = []
+	                                                            p = None
+	                                                                if restr:
+	                                                                        p = re.compile(restr)
+	                                                                            for basedir, dirs, filenames in os.walk(rootdir):
+	                                                                                    for f in filenames:
+	                                                                                                if ((not extension and not restr) or (extension and f.endswith(extension)) or (restr and p.match(f))):
+	                                                                                                                searchedFiles.append(os.path.join(basedir, f))
+	                                                                                                                    return searchedFiles
+	
+	                                                                                                                    def delete_file(filelist) :
+	                                                                                                                        if (filelist):
+	                                                                                                                                for f in filelist :
+	                                                                                                                                            os.remove(f)
+	
+	
+	
+	                                                                                                                                            ###########################################################################################
+	                                                                                                                                            # Classes
+	                                                                                                                                            ###########################################################################################
+	
+	                                                                                                                                            class Properties :
+	                                                                                                                                                filename = ""
+	                                                                                                                                                    propMap = {}
+"7	LINE	0
+	
+"8	LINE	0
+	" ============================================================================
+	" Netrw Directory Listing                                        (netrw v134)
+	"   /home/star16m/scripts/python/jkimutils
+	"   Sorted by      name
+	"   Sort sequence: [\/]$,\.h$,\.c$,\.cpp$,*,\.o$,\.obj$,\.info$,\.swp$,\.bak$,\~$
+	"   Quick Help: <F1>:help  -:go up dir  D:delete  R:rename  s:sort-by  x:exec
+	" ============================================================================
+	../	              0 2014년 02월 24일 (월) 오전 11시 00분 58초
+	.swo	           4096 2014년 06월 13일 (금) 오전 01시 57분 25초
+	__init__.py*	              0 2014년 02월 20일 (목) 오후 10시 39분 14초
+	__init__.pyc*	            137 2014년 02월 20일 (목) 오후 11시 10분 32초
+	base.py*	            101 2014년 02월 20일 (목) 오후 11시 09분 55초
+	base.pyc	            229 2014년 02월 22일 (토) 오후 01시 43분 01초
+	simplehtml.py*	           3014 2014년 02월 24일 (월) 오전 11시 02분 34초
+	simplehtml.pyc	           3272 2014년 02월 24일 (월) 오전 11시 02분 37초
+	simplexls.py*	           1172 2014년 02월 20일 (목) 오후 11시 16분 51초
+	simplexls.pyc*	           1584 2014년 02월 19일 (수) 오후 04시 27분 54초
+	testhtml.py*	            109 2014년 02월 20일 (목) 오후 10시 54분 58초
+"9	LINE	0
+	
+""-	CHAR	0
+	}
+
+# 파일 마크:
+'0  24  1  ~/gittest/utils/src/main/star16m/string/StringUtils.java
+'1  10  0  ~/gittest/utils/src/main/star16m/date/DateUtils.java
+'2  7  0  ~/gittest/utils/src/main/star16m/date/DateUtils.java
+'3  5  0  ~/gittest/utils/src/main/star16m/date/DateUtils.java
+'4  10  0  ~/gittest/utils/src/main/star16m/file/FileUtils.java
+'5  1  187  ~/gittest/utils/pom.xml
+'6  1  0  ~/.ssh/id_rsa.pub
+'7  1  0  ~/.ssh/id_rsa
+'8  1  0  ~/.ssh/known_hosts
+'9  8  0  ~/.ssh
+
+# 점프목록 (새것이 먼저):
+-'  24  1  ~/gittest/utils/src/main/star16m/string/StringUtils.java
+-'  10  0  ~/gittest/utils/src/main/star16m/date/DateUtils.java
+-'  7  0  ~/gittest/utils/src/main/star16m/date/DateUtils.java
+-'  5  0  ~/gittest/utils/src/main/star16m/date/DateUtils.java
+-'  1  0  ~/gittest/utils/src/main/star16m/date/DateUtils.java
+-'  10  0  ~/gittest/utils/src/main/star16m/file/FileUtils.java
+-'  16  4  ~/gittest/utils/src/main/star16m/file/FileUtils.java
+-'  11  4  ~/gittest/utils/src/main/star16m/file/FileUtils.java
+-'  9  0  ~/gittest/utils/src/main/star16m/file/FileUtils.java
+-'  1  0  ~/gittest/utils/src/main/star16m/file/FileUtils.java
+-'  1  187  ~/gittest/utils/pom.xml
+-'  19  19  ~/gittest/utils/pom.xml
+-'  18  27  ~/gittest/utils/pom.xml
+-'  10  20  ~/gittest/utils/pom.xml
+-'  23  4  ~/gittest/utils/src/main/star16m/string/StringUtils.java
+-'  1  0  ~/.ssh/id_rsa.pub
+-'  1  0  ~/.ssh/id_rsa
+-'  1  0  ~/.ssh/known_hosts
+-'  8  0  ~/.ssh
+-'  1  0  ~/.ssh
+-'  9  10  ~/gittest/utils/.git/config
+-'  1  0  ~/gittest/utils/.git/config
+-'  1  0  ~/gittest/utils/src/main/star16m/string/StringUtils.java
+-'  1  4  ~/gittest/utils/src/main/star16m/random/RandomUtils.java
+-'  1  0  ~/scripts/a.out
+-'  15  16  ~/.bashrc
+-'  14  9  ~/.bashrc
+-'  1  1  ~/.bashrc
+-'  6  0  ~/scripts/python/jkimutils/testhtml.py
+-'  1  0  ~/scripts/python/jkimutils/testhtml.py
+-'  39  8  ~/scripts/python/jkimutils/simplexls.py
+-'  1  0  ~/scripts/python/jkimutils/simplexls.py
+-'  116  0  ~/scripts/python/jkimutils/simplehtml.py
+-'  1  0  ~/scripts/python/jkimutils/simplehtml.py
+-'  1  0  ~/scripts/python/jkimutils/bash.py
+-'  15  0  ~/.bash_profile
+-'  77  389  /usr/local/anaconda/lib/python2.7/jkim.py
+-'  1  7  /usr/local/anaconda/lib/python2.7/jkim.py
+-'  55  0  ~/scripts/python/simple_html.ipynb
+-'  47  6  ~/scripts/python/simple_html.ipynb
+-'  1  0  ~/scripts/python/simple_html.ipynb
+-'  12  0  ~/stringtest.py
+-'  1  0  ~/stringtest.py
+-'  1  0  ~/scripts/python/jkimutils/bogo.py
+-'  1  0  ~/scripts/python/jkimutils/.swp
+-'  8  0  ~/scripts/python/jkimutils
+-'  1  0  ~/scripts/python/jkimutils
+-'  132  0  /etc/bashrc
+-'  131  0  /etc/bashrc
+-'  79  0  /etc/profile
+-'  1  0  /etc/profile
+-'  5  36  ~/.cronscript/alarmoff
+-'  1  0  ~/.cronscript/alarmoff
+-'  195  0  ~/scripts/jointest/haah.txt
+-'  1  0  ~/scripts/jointest/haah.txt
+-'  11  17  ~/scripts/jointest/beta.txt
+-'  1  0  ~/scripts/jointest/beta.txt
+-'  10  22  ~/scripts/jointest/alpha.txt
+-'  1  0  ~/scripts/jointest/alpha.txt
+-'  76  9  /var/www/cgi-bin/rhythmbox.py
+-'  62  4  /var/www/cgi-bin/rhythmbox.py
+-'  52  6  /var/www/cgi-bin/rhythmbox.py
+-'  31  0  /var/www/cgi-bin/rhythmbox.py
+-'  18  11  /var/www/cgi-bin/rhythmbox.py
+-'  4  13  ~/scripts/groovy/jointest/join.txt
+-'  1  0  ~/scripts/groovy/jointest/join.txt
+-'  4  19  ~/scripts/groovy/jointest/join2.txt
+-'  1  0  ~/scripts/groovy/jointest/join2.txt
+-'  38  4  ~/scripts/gradle/test/build.gradle
+-'  9  4  ~/scripts/gradle/test/build.gradle
+-'  11  45  ~/scripts/gradle/news/build.gradle
+-'  10  0  ~/scripts/gradle/eee/build.gradle
+-'  1  0  ~/scripts/gradle/eee/.classpath
+-'  1  0  ~/scripts/gradle/eee/.project
+-'  1  0  ~/scripts/gradle/eee/build.gradle
+-'  15  65  ~/scripts/gradle/news/build.gradle
+-'  1  0  ~/.bash_profile
+-'  19  0  ~/scripts/gradle/news/build.gradle
+-'  1  0  ~/scripts/gradle/news/build.gradle
+-'  32  32  ~/scripts/gradle/news/build.gradle
+-'  29  6  ~/scripts/gradle/news/build.gradle
+-'  51  0  ~/scripts/gradle/test/build.gradle
+-'  1  26  ~/scripts/gradle/test/build.gradle
+-'  25  0  ~/scripts/gradle/test/build.gradle
+-'  291  4  ~/scripts/gradle/test/haha.html
+-'  22  51  ~/scripts/python/jkimutils/simplexls.py
+-'  4  19  /var/www/html/jquerytest.html
+-'  1  0  /var/www/html/jquerytest.html
+-'  1  0  /var/www/cgi-bin/rhythmbox.py
+-'  143  9  /var/www/cgi-bin/tv.py
+-'  120  4  /var/www/cgi-bin/tv.py
+-'  1  0  /var/www/cgi-bin/tv.py
+-'  145  12  /var/www/cgi-bin/tv.py
+-'  1  0  /var/www/cgi-bin/torrent_download.py
+-'  2  0  /var/www/cgi-bin/china2.py
+-'  39  57  /var/www/cgi-bin/china2.py
+-'  36  22  /var/www/cgi-bin/china2.py
+
+# 파일내의 마크 히스토리 (새것부터 오래된 순):
+
+> ~/gittest/utils/src/main/star16m/string/StringUtils.java
+	"	24	1
+	^	24	3
+	.	24	2
+	+	24	0
+	+	21	44
+	+	23	4
+	+	24	0
+	+	24	2
+
+> ~/gittest/utils/src/main/star16m/date/DateUtils.java
+	"	10	0
+	^	10	0
+	.	9	0
+	+	1	27
+	+	6	4
+	+	4	17
+	+	5	7
+	+	9	0
+
+> ~/gittest/utils/src/main/star16m/file/FileUtils.java
+	"	10	0
+	^	55	53
+	.	55	52
+	+	11	61
+	+	41	92
+	+	55	52
+
+> ~/gittest/utils/pom.xml
+	"	1	187
+
+> ~/.ssh/id_rsa.pub
+	"	1	0
+
+> ~/.ssh/id_rsa
+	"	1	0
+
+> ~/.ssh/known_hosts
+	"	1	0
+
+> ~/gittest/utils/.git/config
+	"	9	10
+	^	9	11
+	.	9	10
+	+	7	0
+	+	8	0
+	+	10	0
+	+	9	10
+
+> ~/gittest/utils/src/main/star16m/random/RandomUtils.java
+	"	1	4
+	.	26	0
+	+	45	0
+	+	26	0
+
+> ~/scripts/a.out
+	"	1	0
+
+> ~/.bashrc
+	"	15	16
+	^	15	17
+	.	15	16
+	+	14	9
+	+	15	16
+
+> ~/scripts/python/jkimutils/testhtml.py
+	"	6	0
+
+> ~/scripts/python/jkimutils/simplexls.py
+	"	39	8
+
+> ~/scripts/python/jkimutils/simplehtml.py
+	"	116	0
+
+> ~/scripts/python/jkimutils/bash.py
+	"	1	0
+
+> ~/.bash_profile
+	"	15	0
+
+> /usr/local/anaconda/lib/python2.7/jkim.py
+	"	77	389
+	^	77	390
+	.	77	389
+	+	1	8
+	+	77	389
+
+> ~/scripts/python/simple_html.ipynb
+	"	55	0
+
+> ~/stringtest.py
+	"	12	0
+
+> ~/scripts/python/jkimutils/bogo.py
+	"	1	0
