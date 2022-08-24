@@ -377,6 +377,7 @@ CapsLock & b:: Send, ^{Left}                                         ;|
 ;                     CapsLock + 0  |  Shift + 0     )               ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & `;:: Send, {Enter}                                        ;|
+Ctrl & `;:: Send, {Enter}                                            ;|
 CapsLock & ':: Send, =                                               ;|
 CapsLock & [:: Send, ^-                                              ;|
 CapsLock & ]:: Send, {F12}                                           ;|
