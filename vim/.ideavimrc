@@ -1,0 +1,130 @@
+""" Map leader to space ---------------------
+source ~/.vimrc
+" let mapleader=" "
+
+""" Plugins  --------------------------------
+set surround
+set multiple-cursors
+set commentary
+set argtextobj
+set easymotion
+set textobj-entire
+set ReplaceWithRegister
+set NERDTree
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+Plug 'machakann/vim-highlightedyank'
+" Commentary plugin
+Plug 'tpope/vim-commentary'
+Plug 'preservim/nerdtree'
+
+Plug 'easymotion/vim-easymotion'	" Requires IdeaVim-EasyMotion. Lots of mappings
+Plug 'kana/vim-textobj-entire'		" entire buffer text object: ae
+Plug 'machakann/vim-highlightedyank'
+Plug 'terryma/vim-multiple-cursors'	" See below for remapped keys. <A-n> doesn't work on Mac
+Plug 'tommcdo/vim-exchange'		    " cx{motion} to select, again to exchange
+Plug 'tpope/vim-commentary'		    " [count]gc{motion}, o_gc, v_gc, gcc
+Plug 'tpope/vim-surround'		    " ys, cs, ds, S
+Plug 'vim-scripts/argtextobj.vim'	    " argument text objects: aa, ia
+Plug 'vim-scripts/ReplaceWithRegister'  " [count][{reg}]gr{motion}, [count][{reg}]grr, {Visual}[{reg}]gr
+
+""" Common settings -------------------------
+set showmode
+set so=5
+set incsearch
+set nu
+let mapleader = " "
+
+""" Idea specific settings ------------------
+set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
+""" Mappings --------------------------------
+map <C-n> :NERDTree<cr>
+map <leader>f <Plug>(easymotion-s)
+map <leader>e <Plug>(easymotion-f)
+
+map <leader>r <Action>(Run)
+map <leader>d <Action>(Debug)
+map <leader>r <Action>(RenameElement)
+map <leader>c <Action>(Stop)
+" map <leader>z <Action>(ToggleDistractionFreeMode)
+
+map <C-h> <Action>(Vcs.ShowTabbedFileHistory)
+map <S-Space> <Action>(GotoNextError)
+map <leader>e :<C-u>action GotoPreviousError<CR>
+map <leader>E :<C-u>action GotoNextError<CR>
+
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>o <Action>(FileStructurePopup)
+
+nnoremap <C-l> :<C-u>action NextTab<CR>
+nnoremap <C-h> :<C-u>action PreviousTab<CR>
+nnoremap <C-j> :<C-u>action MoveStatementDown<CR>
+nnoremap <C-k> :<C-u>action MoveStatementUp<CR>
+
+nmap <leader>w [w
+nmap <leader>b [b
+nmap <leader>e ]w
+nmap <leader>ge ]b
+
+nnoremap <leader>a :<C-u>action GotoAction<CR>
+nnoremap <leader>G :<C-u>action Generate<CR>
+nnoremap <leader>gn :<C-u>action NewClass<CR>
+nnoremap <leader>go :<C-u>action OverrideMethods<CR>
+nnoremap <leader>gc :<C-u>action GenerateConstructor<CR>
+nnoremap <leader>gg :<C-u>action GenerateGetter<CR>
+nnoremap <leader>gs :<C-u>action GenerateSetter<CR>
+nnoremap <leader>ga :<C-u>action GenerateGetterAndSetter<CR>
+nnoremap <leader>ge :<C-u>action GenerateEquals<CR>
+nnoremap <leader>gt :<C-u>action GenerateTestMethod<CR>
+nnoremap <leader>= :<C-u>action ReformatCode<CR>
+nnoremap <leader>o :<C-u>action FileStructurePopup<CR>
+nnoremap <leader>q :<C-u>action CloseContent<CR>
+nnoremap <leader>Q :<C-u>action ReopenClosedTab<CR>
+nnoremap <leader>e :<C-u>action SearchEverywhere<CR>
+nnoremap <leader>f :<C-u>action GotoFile<CR>
+nnoremap <leader>F :<C-u>action FindInPath<CR>
+nnoremap <leader>s :<C-u>action GotoClass<CR>
+nnoremap <leader>S :<C-u>action GotoSymbol<CR>
+nnoremap <leader>P :<C-u>action ManageRecentProjects<CR>
+nnoremap <leader>b :<C-u>action ToggleLineBreakpoint<CR>
+nnoremap g; :<C-u>action JumpToLastChange<CR>
+nnoremap g, :<C-u>action JumpToNextChange<CR>
+nnoremap gb :<C-u>action Back<CR>
+nnoremap gf :<C-u>action Forward<CR>
+
+function! Invert(calledFromVisual)
+  let antonyms = ['true', 'false', 'after', 'before', 'start', 'end', 'left', 'right', 'first', 'last',
+                 \'True', 'False', 'After', 'Before', 'Start', 'End', 'Left', 'Right', 'First', 'Last']
+
+  if a:calledFromVisual
+    normal gv"wy
+  else
+    normal "wyiw
+  endif
+  let wordUnderCaret = @w
+
+  let eraseWord = a:calledFromVisual ? 'gvc' : 'ciw'
+  let count = 0
+  while (count < len(antonyms))
+    if (antonyms[count] ==# wordUnderCaret)
+      let antonym = (count % 2 ==? 0) ? antonyms[count + 1] : antonyms[count - 1]
+      execute 'normal ' .. eraseWord .. antonym
+      break
+    endif
+    let count += 1
+  endwhile
+endfunction
+
+nnoremap gX :set opfunc=Redact<CR>g@
+nnoremap gx :set opfunc=function('Redact')<CR>g@
+nnoremap gy :set opfunc={arg -> execute "normal `[v`]rx"}<CR>g@
+function! Redact(type)
+    execute "normal `[v`]rx"
+endfunction
+
+nnoremap ! :call Invert(0)<CR>
+vnoremap ! :<C-u>call Invert(1)<CR>
