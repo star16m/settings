@@ -58,6 +58,8 @@ return                                                               ;|
 ;                        CapsLock  |  {ESC}                          ;|
 ;----------------------------------o----------------------------------o
 ;CapsLock::Send, {ESC}                                                ;|
+SetTitleMatchMode, RegEx
+#ifWinNotActive ahk_exe lync.exe
 /*
   IME check 
 */
@@ -77,16 +79,31 @@ ImmGetDefaultIMEWnd(hWnd) {
   return DllCall("imm32\ImmGetDefaultIMEWnd", Uint,hWnd, Uint)
 }
 CapsLock::
-    if(IME_CHECK("A"))
-        Send, {VK15}    ;영문이라면 한영전환 키를 입력해준다.
-    Send, {ESC}
+    ret := IME_CHECK("A")
+    if (%ret% <> 0) {
+        Send, {Esc}
+        Send, {vk15sc138}    ;영문이라면 한영전환 키를 입력해준다.
+    } else {
+        Send, {Esc}
+    }
     return
 
 $ESC::
-    if(IME_CHECK("A"))
-        Send, {VK15}    ;영문이라면 한영전환 키를 입력해준다.
-    Send, {ESC}
+    ret := IME_CHECK("A")
+    if (%ret% <> 0) {
+        Send, {Esc}
+        Send, {vk15sc138}    ;영문이라면 한영전환 키를 입력해준다.
+    } else {
+        Send, {Esc}
+    }
     return
+;    if(IME_CHECK("A")) {
+;    } else {
+;        Send, {vk15sc138}    ;영문이라면 한영전환 키를 입력해준다.
+;    }
+;    Send, {ESC}
+;    return
+#ifWinNotActive
 
 ;---------------------------------------------------------------------o
 
@@ -226,7 +243,7 @@ return                                                               ;|
 ;                      CapsLock + p |  PageDown                      ;|
 ;                      Ctrl, Alt Compatible                          ;|
 ;-----------------------------------o---------------------------------o
-CapsLock & u::                                                       ;|
+CapsLock & y::                                                       ;|
 if GetKeyState("control") = 0                                        ;|
 {                                                                    ;|
     if GetKeyState("alt") = 0                                        ;|
@@ -244,7 +261,7 @@ else {                                                               ;|
 }                                                                    ;|
 return                                                               ;|
 ;-----------------------------------o                                ;|
-CapsLock & p::                                                       ;|
+CapsLock & u::                                                       ;|
 if GetKeyState("control") = 0                                        ;|
 {                                                                    ;|
     if GetKeyState("alt") = 0                                        ;|
@@ -298,6 +315,7 @@ CapsLock & ,:: Send, {Del}                                           ;|
 CapsLock & .:: Send, ^{Del}                                          ;|
 CapsLock & m:: Send, {BS}                                            ;|
 CapsLock & n:: Send, ^{BS}                                           ;|
+CapsLock & BackSpace:: Send, {Del}                                   ;|
 ;---------------------------------------------------------------------o
 
 
@@ -317,11 +335,13 @@ CapsLock & z:: Send, ^z                                              ;|
 CapsLock & x:: Send, ^x                                              ;|
 CapsLock & c:: Send, ^c                                              ;|
 CapsLock & v:: Send, ^v                                              ;|
+CapsLock & s:: Send, ^s                                              ;|
 CapsLock & a:: Send, ^a                                              ;|
-CapsLock & y:: Send, ^y                                              ;|
+;CapsLock & y:: Send, ^y                                              ;|
 CapsLock & w:: Send, ^{Right}                                        ;|
 CapsLock & b:: Send, ^{Left}                                         ;|
 ;---------------------------------------------------------------------o
+
 
 
 ;=====================================================================o
@@ -422,19 +442,34 @@ Send, ^e                                                             ;|
 Send, u                                                              ;|
 return                                                               ;|
 ;-----------------------------------o                                ;|
-CapsLock & 1:: Send,^{F5}                                            ;|
-CapsLock & 2:: Send,{F5}                                             ;|
-CapsLock & 3:: Send,{F10}                                            ;|
-CapsLock & 4:: Send,{F11}                                            ;|
-CapsLock & 5:: Send,+{F5}                                            ;|
+;CapsLock & 1:: Send,^{F5}                                            ;|
+;CapsLock & 2:: Send,{F5}                                             ;|
+;CapsLock & 3:: Send,{F10}                                            ;|
+;CapsLock & 4:: Send,{F11}                                            ;|
+;CapsLock & 5:: Send,+{F5}                                            ;|
 ;-----------------------------------o                                ;|
-CapsLock & 6:: Send,+6                                               ;|
-CapsLock & 7:: Send,+7                                               ;|
-CapsLock & 8:: Send,+8                                               ;|
-CapsLock & 9:: Send,+9                                               ;|
-CapsLock & 0:: Send,+0                                               ;|
+;CapsLock & 6:: Send,+6                                               ;|
+;CapsLock & 7:: Send,+7                                               ;|
+;CapsLock & 8:: Send,+8                                               ;|
+;CapsLock & 9:: Send,+9                                               ;|
+;CapsLock & 0:: Send,+0                                               ;|
 ;---------------------------------------------------------------------o
-
+^+!y:: Send,7                                            ;|
+^+!u:: Send,8                                             ;|
+^+!i:: Send,9                                            ;|
+^+!h:: Send,4                                            ;|
+^+!j:: Send,5                                            ;|
+^+!k:: Send,6                                            ;|
+^+!n:: Send,1                                            ;|
+^+!m:: Send,2                                            ;|
+^+!,:: Send,3                                            ;|
+^+!.:: Send,0                                            ;|
+^+!b:: Send,0                                            ;|
+^+!Space:: Send,0                                            ;|
+;-----------------------------------o                                ;|
 
 ; 한글변경
+CapsLock & Tab::Send {Tab}
+
 CapsLock & Space::Send {vk15sc138}
+; Ctrl & Space::Send {Enter}
