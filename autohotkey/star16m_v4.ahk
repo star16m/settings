@@ -70,7 +70,7 @@ IME_CHECK(WinTitle) {
 Send_ImeControl(DefaultIMEWnd, wParam, lParam) {
   DetectSave := A_DetectHiddenWindows
   DetectHiddenWindows,ON
-   SendMessage 0x283, wParam,lParam,,ahk_id %DefaultIMEWnd%
+  SendMessage 0x283, wParam,lParam,,ahk_id %DefaultIMEWnd%
   if (DetectSave <> A_DetectHiddenWindows)
       DetectHiddenWindows,%DetectSave%
   return ErrorLevel
@@ -79,30 +79,18 @@ ImmGetDefaultIMEWnd(hWnd) {
   return DllCall("imm32\ImmGetDefaultIMEWnd", Uint,hWnd, Uint)
 }
 CapsLock::
-    ret := IME_CHECK("A")
-    if (%ret% <> 0) {
-        Send, {Esc}
-        Send, {vk15sc138}    ;영문이라면 한영전환 키를 입력해준다.
-    } else {
-        Send, {Esc}
+    if (IME_CHECK("A")) {
+        Send, {vk15}    ;영문이라면 한영전환 키를 입력해준다.
     }
+    Send, {Esc}
     return
 
 $ESC::
-    ret := IME_CHECK("A")
-    if (%ret% <> 0) {
-        Send, {Esc}
-        Send, {vk15sc138}    ;영문이라면 한영전환 키를 입력해준다.
-    } else {
-        Send, {Esc}
+    if (IME_CHECK("A")) {
+        Send, {vk15}    ;영문이라면 한영전환 키를 입력해준다.
     }
+    Send, {Esc}
     return
-;    if(IME_CHECK("A")) {
-;    } else {
-;        Send, {vk15sc138}    ;영문이라면 한영전환 키를 입력해준다.
-;    }
-;    Send, {ESC}
-;    return
 #ifWinNotActive
 
 ;---------------------------------------------------------------------o
@@ -469,16 +457,16 @@ return                                                               ;|
 ;-----------------------------------o                                ;|
 
 ; 한글변경
-; CapsLock & Space::Send {vk15sc138}
+; CapsLock & Space::Send {vk15}
 ; CapsLock & Space::Send {Enter}
 CapsLock & Tab::Send {Tab}
 
 
 
-CapsLock & Space::Send {vk15sc138}
+CapsLock & Space::Send {vk15}
 ; Ctrl & Space::Send {Enter}
 ; CapsLock & Space::Send {Enter}
-; CapsLock & Tab::Send {vk15sc138}
+; CapsLock & Tab::Send {vk15}
 ; Alt & c:: Send , ^c
 ; Alt & v:: Send , ^v
 ; Alt & f:: Send , ^f
