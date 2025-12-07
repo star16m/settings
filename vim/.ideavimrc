@@ -147,6 +147,7 @@ map <A-]> <Action>(MethodDown)
 map <leader>ff <Action>(ReformatCode)
 map <leader>fo <Action>(OptimizeImports)
 map <leader>ra <Action>(RearrangeCode)
+map <leader><leader> <Action>(EditorSelectLine)
 
 map <A-j> <Action>(MoveLineDown)
 map <A-k> <Action>(MoveLineUp)
