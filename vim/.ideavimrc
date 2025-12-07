@@ -161,10 +161,13 @@ map <leader>fs <Action>(NewScratchFile)
 map <leader>qq <Action>(CloseContent)
 map <leader>qa <Action>(CloseAllEditors)
 map <leader>nf <Action>(NewFile)
+map <leader>nc <Action>(NewJavaClass)
 map <leader>nd <Action>(NewDir)
 map <leader>re <Action>(RenameFile)
 map <leader>of <Action>(OpenFile)
 map <leader>ri <Action>(RestartIde)
+
+map <leader>gg <Action>(LazyGit.Open)
 
 " -------------------------------------------------------------------
 
