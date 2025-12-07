@@ -20,7 +20,7 @@ Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
 
 Plug 'easymotion/vim-easymotion'	" Requires IdeaVim-EasyMotion. Lots of mappings
-Plug 'kana/vim-textobj-entire'		" entire buffer text object: ae
+Plug 'kana/vim-textobj-entire'		" entire buffer 101010: ae
 Plug 'machakann/vim-highlightedyank'
 Plug 'terryma/vim-multiple-cursors'	" See below for remapped keys. <A-n> doesn't work on Mac
 Plug 'tommcdo/vim-exchange'		    " cx{motion} to select, again to exchange
@@ -42,23 +42,16 @@ set ideastatusicon=gray
 set idearefactormode=keep
 
 """ Mappings --------------------------------
-map <C-n> :NERDTree<cr>
-map <leader>f <Plug>(easymotion-s)
-map <leader>e <Plug>(easymotion-f)
+"map <C-n> :NERDTree<cr>
+"map <leader>f <Plug>(easymotion-s)
+"map <leader>e <Plug>(easymotion-f)
 
 map <leader>r <Action>(Run)
 map <leader>d <Action>(Debug)
-map <leader>r <Action>(RenameElement)
+map <leader>R <Action>(RenameElement)
 map <leader>c <Action>(Stop)
 " map <leader>z <Action>(ToggleDistractionFreeMode)
 
-map <C-h> <Action>(Vcs.ShowTabbedFileHistory)
-map <S-Space> <Action>(GotoNextError)
-map <leader>e :<C-u>action GotoPreviousError<CR>
-map <leader>E :<C-u>action GotoNextError<CR>
-
-map <leader>b <Action>(ToggleLineBreakpoint)
-map <leader>o <Action>(FileStructurePopup)
 
 nnoremap <C-l> :<C-u>action NextTab<CR>
 nnoremap <C-h> :<C-u>action PreviousTab<CR>
@@ -70,31 +63,110 @@ nmap <leader>b [b
 nmap <leader>e ]w
 nmap <leader>ge ]b
 
-nnoremap <leader>a :<C-u>action GotoAction<CR>
-nnoremap <leader>G :<C-u>action Generate<CR>
-nnoremap <leader>gn :<C-u>action NewClass<CR>
-nnoremap <leader>go :<C-u>action OverrideMethods<CR>
-nnoremap <leader>gc :<C-u>action GenerateConstructor<CR>
-nnoremap <leader>gg :<C-u>action GenerateGetter<CR>
-nnoremap <leader>gs :<C-u>action GenerateSetter<CR>
-nnoremap <leader>ga :<C-u>action GenerateGetterAndSetter<CR>
-nnoremap <leader>ge :<C-u>action GenerateEquals<CR>
-nnoremap <leader>gt :<C-u>action GenerateTestMethod<CR>
-nnoremap <leader>= :<C-u>action ReformatCode<CR>
-nnoremap <leader>o :<C-u>action FileStructurePopup<CR>
-nnoremap <leader>q :<C-u>action CloseContent<CR>
-nnoremap <leader>Q :<C-u>action ReopenClosedTab<CR>
-nnoremap <leader>e :<C-u>action SearchEverywhere<CR>
-nnoremap <leader>f :<C-u>action GotoFile<CR>
-nnoremap <leader>F :<C-u>action FindInPath<CR>
-nnoremap <leader>s :<C-u>action GotoClass<CR>
-nnoremap <leader>S :<C-u>action GotoSymbol<CR>
-nnoremap <leader>P :<C-u>action ManageRecentProjects<CR>
-nnoremap <leader>b :<C-u>action ToggleLineBreakpoint<CR>
-nnoremap g; :<C-u>action JumpToLastChange<CR>
-nnoremap g, :<C-u>action JumpToNextChange<CR>
-nnoremap gb :<C-u>action Back<CR>
-nnoremap gf :<C-u>action Forward<CR>
+" -------------------------------------------------------------------
+"https://github.com/igorbabko/ideavim-plugin/blob/main/.ideavimrc
+
+" sync Vim clipboard with OS clipboard
+set clipboard^=unnamed,unnamedplus
+" jump between angle brackets
+set matchpairs+=<:>
+" open config
+noremap <leader>cc :edit ~/.ideavimrc<cr>
+
+" source config
+noremap <leader>cs :source ~/.ideavimrc<cr>:nohlsearch<cr>
+
+" highlight search results
+set hlsearch
+
+" remove search highlights
+nnoremap <Esc> :nohlsearch<cr>
+
+" case-insensitive search
+set ignorecase
+
+" enable case-sensitive search when uppercased letter is present
+set smartcase
+
+" search while typing
+set incsearch
+
+map <leader>wv <Action>(SplitVertically)
+map <leader>wh <Action>(SplitHorizontally)
+map <leader>ww <Action>(Unsplit)
+map <leader>wa <Action>(UnsplitAll)
+
+map <leader>sc <Action>(GotoClass)
+map <leader>sf <Action>(GotoFile)
+map <leader>ss <Action>(GotoSymbol)
+map <leader>sa <Action>(GotoAction)
+map <leader>gd <Action>(GotoDeclaration)
+map <leader>gy <Action>(GotoTypeDeclaration)
+map <leader>gi <Action>(GotoImplementation)
+map <leader>gt <Action>(GotoTest)
+map <leader>gm <Action>(GotoSuperMethod)
+map <leader>gl <Action>(GotoLine)
+
+map <leader>ug <Action>(FindUsages)
+map <leader>uu <Action>(ShowUsages)
+map <leader>vs <Action>(ViewSource)
+map <leader>im <Action>(QuickImplementations)
+map <leader>td <Action>(QuickTypeDefinition)
+map <leader>ti <Action>(ExpressionTypeInfo)
+map <leader>sh <Action>(ShowHoverInfo)
+map <leader>oo <Action>(FileStructurePopup)
+
+map <S-f> <Action>(Find)
+map <S-r> <Action>(Replace)
+map <leader>ff <Action>(FindInPath)
+map <leader>fr <Action>(ReplaceInPath)
+
+map <leader>rn <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+map <leader>aa <Action>(ShowIntentionActions)
+map <leader>sw <Action>(SurroundWith)
+map <S-space> <Action>(Generate)
+map <S-k> <Action>(EditorDuplicateLines)
+map <C-[> <Action>(EditorCompleteStatement)
+
+map <leader>en <Action>(GotoNextError)
+map <leader>ep <Action>(GotoPreviousError)
+map <leader>lc <Action>(JumpToLastChange)
+map <leader>ll <Action>(RecentLocations)
+map <C-;> <Action>(RecentFiles)
+map <S-l> <Action>(Forward)
+map <S-h> <Action>(Back)
+map <A-[> <Action>(MethodUp)
+map <A-]> <Action>(MethodDown)
+
+map <leader>ff <Action>(ReformatCode)
+map <leader>fo <Action>(OptimizeImports)
+map <leader>ra <Action>(RearrangeCode)
+
+map <A-j> <Action>(MoveLineDown)
+map <A-k> <Action>(MoveLineUp)
+"map <C-i> <Action>(MoveStatementDown)
+"map <C-o> <Action>(MoveStatementUp)
+map <leader>ca <Action>(CopyAbsolutePath)
+map <leader>cn <Action>(CopyFileName)
+map <leader>cp <Action>(CopyContentRootPath)
+
+map <leader>fs <Action>(NewScratchFile)
+map <leader>qq <Action>(CloseContent)
+map <leader>qa <Action>(CloseAllEditors)
+map <leader>nf <Action>(NewFile)
+map <leader>nd <Action>(NewDir)
+map <leader>re <Action>(RenameFile)
+map <leader>of <Action>(OpenFile)
+map <leader>ri <Action>(RestartIde)
+
+" -------------------------------------------------------------------
+
 
 function! Invert(calledFromVisual)
   let antonyms = ['true', 'false', 'after', 'before', 'start', 'end', 'left', 'right', 'first', 'last',
