@@ -43,8 +43,8 @@ set idearefactormode=keep
 
 """ Mappings --------------------------------
 "map <C-n> :NERDTree<cr>
-"map <leader>f <Plug>(easymotion-s)
-"map <leader>e <Plug>(easymotion-f)
+map <leader>f <Plug>(easymotion-s)
+map <leader>e <Plug>(easymotion-f)
 
 map <leader>r <Action>(Run)
 map <leader>d <Action>(Debug)
@@ -147,7 +147,7 @@ map <A-]> <Action>(MethodDown)
 map <leader>ff <Action>(ReformatCode)
 map <leader>fo <Action>(OptimizeImports)
 map <leader>ra <Action>(RearrangeCode)
-map <leader><leader> <Action>(EditorSelectLine)
+map vv <Action>(EditorSelectLine)
 
 map <A-j> <Action>(MoveLineDown)
 map <A-k> <Action>(MoveLineUp)
@@ -161,7 +161,7 @@ map <leader>fs <Action>(NewScratchFile)
 map <leader>qq <Action>(CloseContent)
 map <leader>qa <Action>(CloseAllEditors)
 map <leader>nf <Action>(NewFile)
-map <leader>nc <Action>(NewJavaClass)
+map <leader>nc <Action>(NewClass)
 map <leader>nd <Action>(NewDir)
 map <leader>re <Action>(RenameFile)
 map <leader>of <Action>(OpenFile)
