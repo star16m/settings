@@ -55,8 +55,8 @@ map <leader>c <Action>(Stop)
 
 nnoremap <C-l> :<C-u>action NextTab<CR>
 nnoremap <C-h> :<C-u>action PreviousTab<CR>
-nnoremap <C-j> :<C-u>action MoveStatementDown<CR>
-nnoremap <C-k> :<C-u>action MoveStatementUp<CR>
+nnoremap <C-A-S-j> :<C-u>action MoveStatementDown<CR>
+nnoremap <C-A-S-k> :<C-u>action MoveStatementUp<CR>
 
 nmap <leader>w [w
 nmap <leader>b [b
@@ -149,10 +149,12 @@ map <leader>fo <Action>(OptimizeImports)
 map <leader>ra <Action>(RearrangeCode)
 nmap vv <S-v>
 
-map <A-j> <Action>(MoveLineDown)
-map <A-k> <Action>(MoveLineUp)
+map <C-A-j> <Action>(MoveLineDown)
+map <C-A-k> <Action>(MoveLineUp)
 "map <C-i> <Action>(MoveStatementDown)
 "map <C-o> <Action>(MoveStatementUp)
+map <A-j> <Plug>NextWholeOccurrence
+map <Esc> <Action>(EditorEscape)
 map <leader>ca <Action>(CopyAbsolutePath)
 map <leader>cn <Action>(CopyFileName)
 map <leader>cp <Action>(CopyContentRootPath)
@@ -168,6 +170,9 @@ map <leader>of <Action>(OpenFile)
 map <leader>ri <Action>(RestartIde)
 
 map <leader>gg <Action>(LazyGit.Open)
+map <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
+map <leader>bh <Action>(Vcs.ShowHistoryForBlock)
+map <leader>gb <Action>(Vcs.ShowHistoryForBlock)
 
 " -------------------------------------------------------------------
 
