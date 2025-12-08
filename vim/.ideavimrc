@@ -58,10 +58,10 @@ nnoremap <C-h> :<C-u>action PreviousTab<CR>
 nnoremap <C-A-S-j> :<C-u>action MoveStatementDown<CR>
 nnoremap <C-A-S-k> :<C-u>action MoveStatementUp<CR>
 
-nmap <leader>w [w
-nmap <leader>b [b
-nmap <leader>e ]w
-nmap <leader>ge ]b
+" nmap <leader>w [w
+" nmap <leader>b [b
+" nmap <leader>e ]w
+" nmap <leader>ge ]b
 
 " -------------------------------------------------------------------
 "https://github.com/igorbabko/ideavim-plugin/blob/main/.ideavimrc
@@ -100,7 +100,13 @@ map <leader>sc <Action>(GotoClass)
 map <leader>sf <Action>(GotoFile)
 map <leader>ss <Action>(GotoSymbol)
 map <leader>sa <Action>(GotoAction)
-map <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gd <Action>(GotoDeclaration)
+map gd <Action>(GotoDeclaration)
+map gn <Action>(NextDiff)
+map <S-]> <Action>(NextDiff)
+map gp <Action>(PreviousDiff)
+map <S-[> <Action>(PreviousDiff)
+
 map <leader>gy <Action>(GotoTypeDeclaration)
 map <leader>gi <Action>(GotoImplementation)
 map <leader>gt <Action>(GotoTest)
