@@ -53,8 +53,8 @@ map <leader>c <Action>(Stop)
 " map <leader>z <Action>(ToggleDistractionFreeMode)
 
 
-nnoremap <C-l> :<C-u>action NextTab<CR>
-nnoremap <C-h> :<C-u>action PreviousTab<CR>
+nnoremap <S-l> :<C-u>action NextTab<CR>
+nnoremap <S-h> :<C-u>action PreviousTab<CR>
 nnoremap <C-A-S-j> :<C-u>action MoveStatementDown<CR>
 nnoremap <C-A-S-k> :<C-u>action MoveStatementUp<CR>
 
