@@ -1,0 +1,46 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "tab_size": 2,
+  "gutter": {
+    "min_line_number_digits": 3
+  },
+  "auto_update_extensions": {
+    "vue": false
+  },
+  "format_on_save": "off",
+  "ui_font_family": "CodeNewRoman Nerd Font",
+  "buffer_font_family": "CodeNewRoman Nerd Font",
+  "git_panel": {
+    "dock": "right"
+  },
+  "search": {
+    "regex": true
+  },
+  "use_smartcase_search": true,
+  "vim_mode": true,
+  "base_keymap": "JetBrains",
+  "project_panel": {
+    "drag_and_drop": false,
+    "default_width": 243.0,
+    "dock": "right"
+  },
+  "ui_font_size": 18.0,
+  "buffer_font_size": 18.0,
+  "theme": {
+    "mode": "system",
+    "light": "Ayu Light",
+    "dark": "One Dark"
+  },
+  "file_scan_exclusions": [
+    "node_modules/**",
+    "docs/**",
+    "public/**"
+  ]
+}
