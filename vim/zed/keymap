@@ -1,0 +1,79 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor && !menu",
+    "bindings": {
+      "ctrl-w": "pane::CloseActiveItem",
+      "ctrl-c": "editor::Copy",
+      "ctrl-x": "editor::Cut",
+      "ctrl-v": "editor::Paste",
+      "ctrl-a": "editor::SelectAll"
+    }
+  },
+  {
+    "context": "VimControl && vim_mode == normal",
+    "bindings": {
+      "space space": "file_finder::Toggle",
+      "ctrl-e": "file_finder::Toggle",
+      "space w": "pane::CloseActiveItem",
+      "space q a": "pane::CloseAllItems",
+      "shift-l": "pane::ActivateNextItem",
+      "shift-h": "pane::ActivatePreviousItem",
+      "space o": "outline::Toggle",
+      "space g b": "git::Branch",
+      "space t": "terminal_panel::ToggleFocus",
+      "ctrl-alt-g": "terminal_panel::ToggleFocus",
+      "space g g": "git_panel::ToggleFocus",
+      "space /": "pane::DeploySearch",
+      "ctrl-alt-s": "workspace::Save",
+      "shift-u": "vim::Redo",
+      "space h": "editor::ToggleInlayHints",
+      "space e": "pane::RevealInProjectPanel",
+      "] f": "vim::NextMethodStart",
+      "[ f": "vim::PreviousMethodStart",
+      "space v": "vim::ToggleVisualLine",
+      "ctrl-s": "workspace::Save",
+      "ctrl-alt-h": "git::FileHistory"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "]": "search::SelectNextMatch",
+      "[": "search::SelectPreviousMatch",
+    }
+  },
+  {
+    "context": "(ProjectPanel && not_editing)",
+    "bindings": {
+      "f": "project_panel::NewFile",
+      "F": "project_panel::NewDirectory"
+    }
+  },
+  {
+    "context": "(ProjectSearchBar || ProjectSearchView)",
+    "bindings": {
+      "ctrl-alt-r": "search::ToggleReplace"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
+    "bindings": {
+      ".": "vim::Repeat",
+      ">": "vim::Indent",
+      "<": "vim::Outdent"
+    }
+  }
+]
